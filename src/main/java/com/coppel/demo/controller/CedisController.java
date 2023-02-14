@@ -2,6 +2,7 @@ package com.coppel.demo.controller;
 
 import com.coppel.demo.entity.Cedis;
 import com.coppel.demo.service.CedisService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,15 +35,15 @@ public class CedisController {
 		return "redirect:/cedis";
 	}
 
-    @GetMapping("/cedis/edit/{num_cedis}")
-	public String show(@PathVariable Long num_cedis, Model modelo) {
-		modelo.addAttribute("cedis", service.obtenerCedisPorId(num_cedis));
+    @GetMapping("/cedis/edit/{uuid}")
+	public String show(@PathVariable Long uuid, Model modelo) {
+		modelo.addAttribute("cedis", service.obtenerCedisPorId(uuid));
 		return "cedis-edit";
 	}
 
-    @PostMapping("/cedis/{num_cedis}")
-	public String update(@PathVariable Long num_cedis, @ModelAttribute("cedis") Cedis entityUpdate, Model modelo) {
-        Cedis entityExist = service.obtenerCedisPorId(num_cedis);
+    @PostMapping("/cedis/{uuid}")
+	public String update(@PathVariable Long uuid, @ModelAttribute("cedis") Cedis entityUpdate, Model modelo) {
+        Cedis entityExist = service.obtenerCedisPorId(uuid);
 		entityExist.setNom_cedis(entityUpdate.getNom_cedis());
 		entityExist.setNum_cedisropa(entityUpdate.getNum_cedisropa());
 		entityExist.setNum_cedimueble(entityUpdate.getNum_cedimueble());
@@ -53,9 +54,9 @@ public class CedisController {
 		return "redirect:/cedis";
 	}
 
-    @GetMapping("/cedis/{num_cedis}")
-	public String delete(@PathVariable Long num_cedis) {
-		service.eliminarCedis(num_cedis);
+    @GetMapping("/cedis/{uuid}")
+	public String delete(@PathVariable Long uuid) {
+		service.eliminarCedis(uuid);
 		return "redirect:/cedis";
 	}
 }

@@ -9,9 +9,9 @@ public interface CedisService {
 
     public Cedis guardarCedis(Cedis entity);
 	
-	public Cedis obtenerCedisPorId(Long num_Cedis);
+	public Cedis obtenerCedisPorId(Long uuid);
 	
 	public Cedis actualizarCedis(Cedis entity);
 	
-	public void eliminarCedis(Long num_Cedis);
+	public void eliminarCedis(Long uuid);
 }

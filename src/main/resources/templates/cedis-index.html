@@ -26,15 +26,15 @@
             </thead>
             <tbody>
             <tr th:each="item : ${list}">
-              <td th:text="${item.num_cedis}"></td>
+              <td th:text="${item.uuid}"></td>
               <td th:text="${item.nom_cedis}"></td>
               <td th:text="${item.num_cedisropa}"></td>
               <td th:text="${item.num_cedimueble}"></td>
               <td>
-                <a class="btn btn-outline-secondary" th:href="@{/cedis/edit/{num_cedis}(num_cedis=${item.num_cedis})}" role="button">
+                <a class="btn btn-outline-secondary" th:href="@{/cedis/edit/{uuid}(uuid=${item.uuid})}" role="button">
                     <i class="bi bi-pencil-square"></i>
                 </a>
-                <a class="btn btn-outline-danger" th:href="@{/cedis/{num_cedis}(num_cedis=${item.num_cedis})}" role="button">
+                <a class="btn btn-outline-danger" th:href="@{/cedis/{uuid}(uuid=${item.uuid})}" role="button">
                     <i class="bi bi-trash"></i>
                 </a>
             </td>

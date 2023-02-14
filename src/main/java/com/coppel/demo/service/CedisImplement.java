@@ -23,8 +23,8 @@ public class CedisImplement implements CedisService{
     }
 
     @Override
-    public Cedis obtenerCedisPorId(Long num_Cedis) {
-        return repository.findById(num_Cedis).get();
+    public Cedis obtenerCedisPorId(Long uuid) {
+        return repository.findById(uuid).get();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CedisImplement implements CedisService{
     }
 
     @Override
-    public void eliminarCedis(Long num_Cedis) {
-        repository.deleteById(num_Cedis);
+    public void eliminarCedis(Long uuid) {
+        repository.deleteById(uuid);
     }
 }

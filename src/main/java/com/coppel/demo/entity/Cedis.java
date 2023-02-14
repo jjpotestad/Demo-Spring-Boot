@@ -2,8 +2,6 @@ package com.coppel.demo.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,8 +9,8 @@ import jakarta.persistence.Table;
 @Table(name = "cedis")
 public class Cedis {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long num_cedis;
+    @Column(name = "uuid", nullable = false, unique = true)
+    private Long uuid;
 
     @Column(name = "nom_cedis", nullable = false, length = 100)
     private String nom_cedis;
@@ -32,20 +30,22 @@ public class Cedis {
     public Cedis() {
     }
 
-    public Cedis(Long num_cedis, Integer num_cedisropa, Integer num_cedimueble, String des_servidorropa, String des_servidormueble) {
-        this.num_cedis = num_cedis;
+    public Cedis(Long uuid, String nom_cedis, Integer num_cedisropa, Integer num_cedimueble, String des_servidorropa,
+            String des_servidormueble) {
+        this.uuid = uuid;
+        this.nom_cedis = nom_cedis;
         this.num_cedisropa = num_cedisropa;
         this.num_cedimueble = num_cedimueble;
         this.des_servidorropa = des_servidorropa;
         this.des_servidormueble = des_servidormueble;
     }
 
-    public Long getNum_cedis() {
-        return num_cedis;
+    public Long getUuid() {
+        return uuid;
     }
 
-    public void setNum_cedis(Long num_cedis) {
-        this.num_cedis = num_cedis;
+    public void setUuid(Long uuid) {
+        this.uuid = uuid;
     }
 
     public String getNom_cedis() {
@@ -90,6 +90,13 @@ public class Cedis {
 
     @Override
     public String toString() {
-        return "Cedis{" + "num_cedis=" + num_cedis + ", num_cedisropa=" + num_cedisropa + ", num_cedimueble=" + num_cedimueble + ", des_servidorropa=" + des_servidorropa + ", des_servidormueble=" + des_servidormueble + '}';
+        return "Cedis{" +
+                "uuid=" + uuid +
+                ", nom_cedis='" + nom_cedis + '\'' +
+                ", num_cedisropa=" + num_cedisropa +
+                ", num_cedimueble=" + num_cedimueble +
+                ", des_servidorropa='" + des_servidorropa + '\'' +
+                ", des_servidormueble='" + des_servidormueble + '\'' +
+                '}';
     }
 }

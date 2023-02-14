@@ -6,8 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 @Entity
@@ -15,7 +13,7 @@ import jakarta.persistence.Column;
 public class Empleado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "num_empleado", nullable = false, unique = true)
     private Long num_empleado;
 
     @Column(name = "nom_empleado", nullable = false, length = 100)
