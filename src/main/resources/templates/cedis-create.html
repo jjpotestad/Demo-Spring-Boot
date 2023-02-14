@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <div th:include="head :: copy"></div>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-2">
+          <div th:include="nav :: copy"></div>
+        </div>
+        <div class="col-10">
+            <div class="card" style="width: 80%;">
+              <div class="card-body">
+                <h3 class="card-title text-center mb-3">Registro de CEDIS</h3>
+                <form th:action="@{/cedis}" th:object="${cedis}" method="POST">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="num_cedis" class="form-label">Numero de CEDIS</label>
+                        <input type="number" name="num_cedis" th:field="*{num_cedis}" class="form-control" placeholder="Ponga su numero" required>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="nom_cedis" class="form-label">Nombre del CEDIS</label>
+                        <input type="text" name="nom_cedis" th:field="*{nom_cedis}" class="form-control" placeholder="Ponga su nombre" required>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="num_cedisropa" class="form-label">Numero de CEDIS ropa</label>
+                            <input type="number" name="num_cedisropa" th:field="*{num_cedisropa}" class="form-control" placeholder="Ponga su numero" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="num_cedimueble" class="form-label">Numero de CEDIS muebles</label>
+                            <input type="number" name="num_cedimueble" th:field="*{num_cedimueble}" class="form-control" placeholder="Ponga su numero" required>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="des_servidorropa" class="form-label">Servidor ropa</label>
+                            <input type="text" name="des_servidorropa" th:field="*{des_servidorropa}" class="form-control" required>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="des_servidormueble" class="form-label">Servidor muebles</label>
+                            <input type="text" name="des_servidormueble" th:field="*{des_servidormueble}" class="form-control" required>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="btn-group" role="group">
+                      <button type="submit" class="btn btn-outline-primary rounded mr-3">Guardar</button>
+                      <a class="btn btn-outline-secondary rounded" th:href="@{/cedis}">Cancelar</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

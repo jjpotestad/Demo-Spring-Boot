@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <div th:include="head :: copy"></div>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-2">
+          <div th:include="nav :: copy"></div>
+        </div>
+        <div class="col-10">
+          <div class="d-flex justify-content-between">
+            <h3>Listado Empleados</h3>
+            <a class="btn btn-outline-success mb-1 mr-1" th:href="@{/empleados/create}" role="button">
+              <i class="bi bi-plus-square"></i>
+            </a>
+          </div>
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>
+              <th>Numero empleado</th>
+              <th>Nombre</th>
+              <th>Fecha ingreso</th>
+              <th>OPC interno</th>
+              <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${list}">
+              <td th:text="${item.num_empleado}"></td>
+              <td th:text="${item.nom_empleado}"></td>
+              <td th:text="${item.fec_ingreso}"></td>
+              <td th:text="${item.opc_interno}"></td>
+              <td>
+                <a class="btn btn-outline-secondary" th:href="@{/empleados/edit/{num_empleado}(num_empleado=${item.num_empleado})}" role="button">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+
+                <a class="btn btn-outline-danger" th:href="@{/empleados/{num_empleado}(num_empleado=${item.num_empleado})}" role="button">
+                  <i class="bi bi-trash"></i>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

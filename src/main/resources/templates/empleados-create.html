@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <div th:include="head :: copy"></div>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-2">
+          <div th:include="nav :: copy"></div>
+        </div>
+        <div class="col-10">
+            <div class="card" style="width: 80%;">
+              <div class="card-body">
+                <h3 class="card-title text-center mb-3">Registro de Empleados</h3>
+                <form th:action="@{/empleados}" th:object="${empleado}" method="POST">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="num_empleado" class="form-label">Numero de empleado</label>
+                        <input type="number" name="num_empleado" th:field="*{num_empleado}" class="form-control" placeholder="Ponga su numero" required>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="nom_empleado" class="form-label">Nombre del empleado</label>
+                        <input type="text" name="nom_empleado" th:field="*{nom_empleado}" class="form-control" placeholder="Ponga su nombre" required>
+                      </div>  
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="fec_ingreso" class="form-label">Fecha de ingreso</label>
+                        <input type="date" name="fec_ingreso" th:field="*{fec_ingreso}" class="form-control" required>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="fec_cumple" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" name="fec_cumple" th:field="*{fec_cumple}" class="form-control" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="opc_interno" class="form-label">OPC interno</label>
+                        <input type="text" name="opc_interno" th:field="*{opc_interno}" class="form-control" placeholder="Ponga su OPC interno" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="btn-group" role="group">
+                      <button type="submit" class="btn btn-outline-primary rounded mr-3">Guardar</button>
+                      <a class="btn btn-outline-secondary rounded" th:href="@{/empleados}">Cancelar</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
