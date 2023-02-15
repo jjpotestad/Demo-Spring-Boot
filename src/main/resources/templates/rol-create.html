@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <div th:include="head :: copy"></div>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-2">
+          <div th:include="nav :: copy"></div>
+        </div>
+        <div class="col-10">
+            <div class="card" style="width: 80%;">
+              <div class="card-body">
+                <h3 class="card-title text-center mb-3">Registro de Roles</h3>
+                <form th:action="@{/roles}" th:object="${rol}" method="POST">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="num_rol" class="form-label">Numero de rol</label>
+                        <input type="number" name="num_rol" th:field="*{num_rol}" class="form-control" placeholder="Ponga su numero" required>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="mb-3">
+                        <label for="nom_rol" class="form-label">Nombre del rol</label>
+                        <input type="text" name="nom_rol" th:field="*{nom_rol}" class="form-control" placeholder="Ponga su nombre" required>
+                      </div> 
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="btn-group" role="group">
+                      <button type="submit" class="btn btn-outline-primary rounded mr-3">Guardar</button>
+                      <a class="btn btn-outline-secondary rounded" th:href="@{/roles}">Cancelar</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@
             <div class="card" style="width: 80%;">
               <div class="card-body">
                 <h3 class="card-title text-center mb-3">Modificar CEDIS</h3>
-                <form th:action="@{/cedis/{uuid}(num_cedis=${cedis.uuid})}" th:object="${cedis}" method="POST">
+                <form th:action="@{/cedis/{uuid}(uuid=${cedis.uuid})}" th:object="${cedis}" method="POST">
                   <div class="row">
                     <div class="col-6">
                       <div class="mb-3">
